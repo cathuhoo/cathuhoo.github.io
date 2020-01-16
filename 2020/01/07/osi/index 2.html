@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="zh"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="独立之精神，自由之思想"><title>OSI模型究竟忽悠了多少人？ | 段章取义</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">OSI模型究竟忽悠了多少人？</h1><a id="logo" href="/.">段章取义</a><p class="description">段教授的读书与思考</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Start</i></a><a href="/archives/"><i class="fa fa-archive"> Archiv</i></a><a href="/about/me.html"><i class="fa fa-user"> Über</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">OSI模型究竟忽悠了多少人？</h1><div class="post-meta">Jan 7, 2020<span> | </span><span class="category"><a href="/categories/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a></span></div><div class="post-content"><p>作者：段海新， 写于2009 </p>
+<p>Those who do not study history, are doomed to repeat it.
+–J. Onions, RFC 1606</p>
+<p>历史上OSI模型和TCP/IP长达十几年的竞争，现在已经很少提及了。在今天的中国，各种标准陆续出台，下一代互联网、IPv6等成为业界关注的热点，甚至也有宣称IPv9互联网在中国取得了成功。</p>
+<p>不了解历史的人，很容易重复历史。我们能否在实践检验之前就宣布它的成功、宣称它代表未来的发展趋势？本文回顾OSI诞生到消亡的这段历史，希望能够引发对未来互联网体系结构研究及相关问题的思考。</p>
+<p><strong>一、OSI的概要和现状</strong></p>
+<p>OSI（Open System Interconnection）参考模型是国际标准化组织（ISO）制定的一个用于计算机或通信系统间互联的标准体系，一般称为OSI参考模型或七层模型。它是一个七层的、抽象的模型，不仅包括一系列抽象的术语或概念，也包括具体的协议。在国内、国外所有关于计算机网络的教科书中，如果不提OSI参考模型，就仿佛没有了“理论”指导，相信绝大多数学过计算机网络的人，都学过或多少听说过。</p>
+<p>在八十年代末、九十年代初，OSI的确有一统天下的架势，主流的学术期刊无数的文章都给人们描绘了一个伟大的未来：“OSI模型及其协议将会统领整个世界，从而把所有其他技术和标准都排除出局”[1]。人们将从IBM的SNA技术、APARNET的TCP/IP技术、Digital的DECnet技术的奴役中解放出来，投入到OSI协议统一的天国。</p>
+<p>然而，在90年代中后期，TCP/IP和OSI模型的竞争以互联网的成功和OSI的失败而结束了。我们今天广泛使用的互联网是基于TCP/IP模型，它却是一个四层（有人也说是五层）模型。今天，无论在工程界还是学术界，我们只用OSI参考模型所定义的某些术语或概念进行交流，却很少厂商或个人实现或使用OSI的协议，几乎根本看不到了。</p>
+<p>但是直到今天，有没有人怀疑过，我们是不是被“忽悠”了？这个人人都敬若神明、却又看不到的OSI模型，究竟是何方神圣设计的？</p>
+<p><strong>二、OSI七层模型的诞生和消亡</strong></p>
+<p>很多人质疑过OSI参考模型。在国内广泛使用的《计算机网络》教材中，Tanenbaum先生就总结了一些教训“糟糕的时机、糟糕的技术、糟糕的实现、糟糕的政策”[1]，想必很多学生都读过。然而有关OSI参考模型制定的故事，未必有很多人知道。以下来自William Stalling先生教材的参考资源网站[2]，William Stalling是美国至少两本优秀教材的作者。这个故事在[3][4]中得到了验证。</p>
+<p>据William Stalling先生介绍，OSI的大部分设计工作实际上只是Honeywell Information System公司的一个小组完成的，小组的技术负责人是Charlie Bachman。70年代中期，这个小组主要是为了开发一些原型系统而成立的，主要关注数据库系统的设计。当时，为了支持数据库系统的访问，需要一个结构化的分布式通信系统体系结构。于是这个小组研究了当时已存在的一些解决方案，其中包括IBM公司的SNA(System Network Architecture)、ARPANET（Internet的前身）的协议、以及为数据库标准化而正在研究中的一些表示服务（presentation services）的相关概念，在1977年他们提出了一个七层的体系结构模型，内部称之为分布式系统体系结构（DSA）。</p>
+<p>与此同时，1977年英国标准化协会（BSI）向国际标准化组织（ISO）提议，为了定义分布处理之间的通信基础设施，需要一个标准的体系结构。结果，ISO就开放系统互联（OSI）问题成立了一个专委会（TC 97, SC 16），指定由美国国家标准协会（ANSI）开发一个标准草案，在专委会第一次正式会议之前提交。</p>
+<p>Charlie Bachman 参加了ANSI早期的会议，并提交了他的七层模型，这个模型就成了提交ISO专委会的唯一的一份草案。1978年3月，在ISO的OSI专委会在华盛顿召开的会议上，与会专家很快达成了共识，认为这个分层的体系结构能够满足开放式系统的大多数需求，而且具有可扩展的能力，能够满足新的需求。于是，1978年发布了这个临时版本，1979年稍作细化之后，成了最终的版本。因此，OSI模型和1977年DSA模型基本相同。</p>
+<p>以下故事来源于普度大学著名教授Douglas E. Comer先生的个人主页上的一篇文章“网络分层和OSI模型起源的真实故事”。Douglas E. Comer先生质疑：互联网如今已经取得了如此的成功，为什么仍然用OSI的七层模型而不是互联网的五层来描述互联网？</p>
+<p>“研究人员开始回顾OSI七层参考模型的起源，琢磨这个笨重的、模糊不清的模型为什么如此的持久力，总是挥之不去。他们发现了一个令人吃惊的事实。虽然我们早就知道，这个模型是一个小组的工作；但是我们不知道，那群人在一天深夜聚在酒吧里取笑美国的流行文化。他们在餐巾纸上胡乱写下迪斯尼电影“白雪公主和七个小矮人”中的七个小矮人的名字，有人开玩笑说，‘7’对网络分层来讲是一个很好的数字。第二天上午在标准化委员会的会议上，工作组传看着餐巾纸，一致同意了他们前天夜里喝醉以后的重大发现。那天结束时，他们对七个层次重新命名（使之听起来更象科学），于是基本模型诞生了。以下罗列了七层协议的名字和一些解释：</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>小矮人的名字</th>
+<th>OSI分层的名字</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Sleepy Physical</td>
+<td>物理层</td>
+<td>略</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sneezy Link</td>
+<td>链路层)</td>
+<td>略</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Happy Network</td>
+<td>网络层</td>
+<td>略</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Doc Transport</td>
+<td>传输层</td>
+<td>（略）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dopey Session</td>
+<td>会话层</td>
+<td>（略）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Bashful Presentation</td>
+<td>表示层</td>
+<td>（略）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Grumpy Application</td>
+<td>应用层</td>
+<td>（略）</td>
+</tr>
+</tbody></table>
+<p>这个故事的教训：如果你是一个标准委员会的工程师，就不要和你的同事去喝酒——深夜里一个拙劣的笑话，有可能成为工业界几十年都挥之不去的梦魇。”</p>
+<p>Douglas E. Comer来清华演讲时，我还没有看到这篇文章，没有向他求证故事的真假，自认为其中有很多调侃的成份。但是美国许多知名学者对OSI的态度却不需要过多求证了，OSI是一批没有网络设计和开发经验的人设计的，也基本可以得到证实。</p>
+<p>“伟大”的OSI参考模型的思想在酒吧里诞生以后，确实“忽悠”了很多组织和研究者，其中包括美国联邦政府。1990年美国通过国家标准和技术协会发布了联邦信息处理标准(FIPS) 标准 FIPS 146-1，也就是GOSIP(Government Open Systems Interconnection Profile )。GOSIP定义了OSI协议的子集，要求联邦政府机构的信息系统都要遵循GOSIP协议进行通讯，并要求向政府部门供货的设备厂商的必须能够证明他们的设备能够与GOSIP兼容。然而，就像Douglas E. Comer先生在清华的演讲中提到的，联邦政府后来又允许已有的设备、紧急的项目采用TCP/IP协议或其他的协议，于是几乎所有的项目都声称自己是紧急的。到1995年，联邦政府又发布了POSIT(Profiles for Open Systems Internetworking Technologies) FIPS PUB 146-2[6]，在第3条中声明“修改FIPS 146-1，删除联邦机构购买网络产品和服务是必须遵守GOSIP协议的要求。”</p>
+<p>从此，除了少数军方应用使用X.500的邮件系统以外，OSI已经名存实亡了。</p>
+<p><strong>三、OSI对 Internet产生了“严重”影响吗？</strong></p>
+<p>有人或许会说，设计者是谁并不能妨碍OSI模型的伟大，不能否定它对互联网发展的指导意义。那么OSI七层模型对Internet的发展是否真的产生了“严重影响”呢？ </p>
+<p>至少我们知道，OSI的七层模型诞生之前，ARPANET已经存在了。但是有人说，至少TCP/IP使用了OSI的许多术语，比如协议层的名字。我们再来看看Debby Koren博士在“OSI七层模型和Internet协议模型”一文中的说明[7]：</p>
+<p> “许多教科书中Internet协议的描述中使用了OSI的许多术语，比如物理层和数据链路层。然而，在1981年之前并非如此。1981年Jon Postel 等在计算机网络（1981年第5期，pp261-271）上发表的文章中有一个图表，我们今天所说的IP层（对应OSI的第3层，即Network Layer），实际上是Internetwork Layer，它运行在Network Layer（对应OSI的第2层，即Data Link Layer）之上。”</p>
+<p> 就像周正龙的华南虎照片和年画一样，我们不难说明谁影响了谁。</p>
+<p>当然不能否认，在互联网领域，无论学术界还是工程界，我们已经习惯了OSI的术语，用它交流一般也不会产生误解。比如我们说一个工作在“第7层”的系统，我们都知道是应用层，也不必非要说它是TCP/IP的第5层。</p>
+<p><strong>四、互联网设计的“指导原则”究竟是什么？</strong></p>
+<p>也许很多学生在学习互联网的过程中，都听说过互联网设计的一些“设计原则”或是“指导思想”，比如：</p>
+<ul>
+<li><p>无连接（Connectionless），区别于传统电信网络面向连接的概念，使用分组交换而不是电路交换。</p>
+</li>
+<li><p>端到端（End to End），在网络层（IP层）以上，通信的端系统（计算机）应该直接通信不需要中间设备，类似防火墙、地址转换设备等中间盒子（Middle-Box）是不被看好的。 </p>
+</li>
+<li><p>简单性原则。。。。 </p>
+</li>
+<li><p>分层思想等等。。。</p>
+</li>
+</ul>
+<p>这些设计原则的确为后来网络技术的研究提供了很大帮助，也许是适应当时互联网发展的。然而这些原则从哪里来的？是来自美国政府（如国防部）的“最高指示”吗？还是来自上帝的启示？</p>
+<p>我们看一下MIT 的David Clark教授1988年发表的这篇文章[8]，我们可以看到，在互联网的设计之初，很多设计目标、动机都是很模糊的，许多所谓的设计原则或设计思想，在互联网发展过程中逐渐总结出来的。</p>
+<p>例如，无连接的思想在一开始并没有充分强调，IP层和TCP层分层的思想，在一开始也不是当初计划书的一部分。比如ICMP、OSPF是哪一层的协议？ ICMP是封装在IP分组中的，但是却与IP是同一层次；OSPF有与TCP同等层次的协议号码（protocol number），然而TCP/IP协议栈中“传输层”或者“第4层”的协议只有TCP和UDP，却不包括OSPF。 </p>
+<p>我最近参加的IETF会议上，cisco 公司的资深专家Fred Baker介绍cisco 公司解决局域网安全问题的“IP Source Guard”技术时，不止一次提到，他们的解决方案的确违反了网络分层的原则，是指他们在二层交换机上检查了数据包的三层信息。他们没有让“分层原则”束缚了自己的手脚。 </p>
+<p>上学期，美国普渡大学的教授、互联网先驱之一Douglas Comer 先生在这个会议室做了一次报告，题目是“Lessons Learned From The Internet Project” [9]。我选取其中的几点介绍一下：</p>
+<ul>
+<li>端到端的原则也没有象当初想象的那么关键，目前一半以上的计算机通过网络地址转换（NAT）上网（即使用192.168.x.x这类的私有地址），而且防火墙也已经被广泛的接受，而这些，都打破了互联网的端到端原则。 </li>
+<li>由多个网络构成的通信系统与一个庞大的单一网络构成的通信系统相比，更为灵活，并且更容易适应技术的变化；</li>
+<li>一个由智能终端系统和简单的网络构成的网络，富于创新的潜力，但是有时较为脆弱 ；</li>
+<li>制定一个有限的目标，构建一个具体的系统，或者解决一个具体的工程问题，比起一个宏伟的目标、复杂的系统更为现实 ；</li>
+<li>OSI七层参考模型表明，由一个专家委员会设计的东西，不会有什么好结果。</li>
+<li>那么，互联网的研究与开发有没有“世界观”、“方法论”一类的指导思想呢？1992年David Clark教授在IETF会议上总结了这样一句话“We reject: kings, presidents, and voting. We believe in: rough consensus and running code（我们拒绝国王、总统和投票，我们相信大多数人的意见和运行的代码）。”[10]这就是广为流传的“互联网哲学（Internet Philosophy）”。</li>
+</ul>
+<p>也许让许多搞哲学的先生们大跌眼镜，这算哪门子哲学？</p>
+<p><strong>五、总结与思考</strong></p>
+<p>本文只是我个人目前对OSI模型以及类似政府强制推行的“官方标准”的一点看法，因此我收集的关于OSI和TCP/IP历史的资料并不全面。OSI模型对于理解网络协议也许有一些作用，但是我不认为它曾经对网络研究有过什么指导，以后的研究更不应该局限于OSI的框架之内。</p>
+<p>在技术研究领域中，我认为研究应当以解决问题为目标，也就是“具体问题具体分析”，“实事求是”。一个“理论模型”，应该来自于实践，同时还应该接受实践的检验，“实践是检验真理的唯一标准”。一个由所谓的“精英”或“专家”委员会设计出来的东西，在未经检验之前就宣布它是成功的，宣称它代表了未来的发展方向，是不能让人信服的，它的结果往往和OSI和GOSIP一样。 </p>
+<p>在我看来，在互联网领域中美国的大忽悠也不比中国少。OSI是他们忽悠出来的，不仅忽悠了美国政府，而且忽悠了全世界。不过我也不认为，像有些学者所说，美国人关起门来偷偷地研究TCP/IP，却骗其他国家都走OSI的弯路，使得美国再互联网领域占尽了先机。也许不少民族主义的“爱国者”会相信这样的说法，以证实美国的确有狼子野心。</p>
+<p>然而，在一个言论自由、允许学术争鸣的国度里，不怕有人忽悠，就像华南虎照片最终会被揭穿一样。从OSI参考模型诞生之日起，就有一批人“We reject: kings, presidents, and voting. We believe in: rough consensus and running code”。最终大多数人还是会选择他们能够看到、用到、感受到的实际的东西，而不是想象中的乌托邦（OSI）。</p>
+<p>然而在中国，一些学术权威引进了美国忽悠出来的东西之后，就不允许其他人提出反对的声音了。更加可怕的是，这些忽悠出来的理论不经检验就宣布它是真理，代表着未来的发展方向，于是我们就只有被忽悠的自由了。</p>
+<p>最后用本文开头的那句话结尾吧，这本是1994年愚人节发布的一个RFC（可是中国的学者居然把它实现了），这个文档只有最后的这句话是严肃的：Those who do not study history, are doomed to repeat it（不研究历史的人，注定要重复历史）。</p>
+<p>希望中国互联网的研究，不要重复过去失败的历史。</p>
+<p><strong>参考文献</strong></p>
+<p>[1]  Tanenbaum《计算机网络》第四版，清华大学出版社，pp39</p>
+<p>[2] THE ORIGINS OF OSI <a href="http://williamstallings.com/Extras/OSI.html" target="_blank" rel="noopener">http://williamstallings.com/Extras/OSI.html</a></p>
+<p>[3] <a href="http://www.cisco.com/web/about/ac123/ac147/archived_issues/ipj_5-2/book_review.html]" target="_blank" rel="noopener">http://www.cisco.com/web/about/ac123/ac147/archived_issues/ipj_5-2/book_review.html]</a></p>
+<p>[4]  <a href="http://www.groklaw.net/articlebasic.php?story=20050219170121955" target="_blank" rel="noopener">http://www.groklaw.net/articlebasic.php?story=20050219170121955</a></p>
+<p>[5] The True Story Of Network Layering  And The Origin Of The OSI Model ,<a href="http://www.cs.purdue.edu/homes/dec/essay.network.layers.html" target="_blank" rel="noopener">http://www.cs.purdue.edu/homes/dec/essay.network.layers.html</a></p>
+<p>[6] POSIT(Profiles for Open Systems Internetworking Technologies) FIPS PUB 146-2（<a href="http://www.itl.nist.gov/fipspubs/fip146-2.htm），" target="_blank" rel="noopener">http://www.itl.nist.gov/fipspubs/fip146-2.htm），</a></p>
+<p>[7] Debby Koren, The OSI Model – A Surviving Remnant of the OSI Protocol Stack, <a href="http://www2.rad.com/networks/introductory/layers/main.htm" target="_blank" rel="noopener">http://www2.rad.com/networks/introductory/layers/main.htm</a>, </p>
+<p>[8] David D. Clark, The Design Philosophy of the DARPA Internet Protocols, <a href="http://xys.ccert.edu.cn/reference/ccr-9501-clark-design-philosophy.pdf" target="_blank" rel="noopener">http://xys.ccert.edu.cn/reference/ccr-9501-clark-design-philosophy.pdf</a></p>
+<p>[9] Douglas Comer, Lessons Learned From The Internet Project, <a href="http://xys.ccert.edu.cn/reference/Comer_Internet_Lessons_Talk.pdf" target="_blank" rel="noopener">http://xys.ccert.edu.cn/reference/Comer_Internet_Lessons_Talk.pdf</a></p>
+<p>[10] David D. Clark, A Cloudy Crystal Ball–Visions of the Future, IETF, July 1992, <a href="http://xys.ccert.edu.cn/reference/future_ietf_92.pdf" target="_blank" rel="noopener">http://xys.ccert.edu.cn/reference/future_ietf_92.pdf</a></p>
+</div><div class="tags"><a href="/tags/%E5%8E%86%E5%8F%B2/">历史</a><a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a><a href="/tags/TCP-IP/">TCP/IP</a><a href="/tags/OSI/">OSI</a></div><div class="post-nav"><a class="pre" href="/2020/01/07/baby-book/">《美国儿科学会育儿百科》中文版中的几个问题</a><a class="next" href="/2020/01/07/abacus/">从算盘的历史到IBM和微软的阴谋</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://duan.haixin.co"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Kategorien</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%92%E8%81%94%E7%BD%91%E6%B2%BB%E7%90%86/">互联网治理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8E%86%E5%8F%B2/">历史</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8F%8D%E6%80%9D%E4%B8%AD%E5%8C%BB/">反思中医</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A7%E6%96%87/">旧文</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A7%E6%96%87/%E6%96%B0%E8%AF%AD%E4%B8%9D/">新语丝</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/">生活感悟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E6%99%AE/">科普</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BF%BB%E8%AF%91/">翻译</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BF%BB%E8%AF%91/%E4%BA%92%E8%81%94%E7%BD%91%E6%B2%BB%E7%90%86/">互联网治理</a><span class="category-list-count">1</span></li></ul></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/%E6%95%85%E4%BA%8B/" style="font-size: 15px;">故事</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 15px;">哲学</a> <a href="/tags/%E6%96%B0%E8%AF%AD%E4%B8%9D/" style="font-size: 15px;">新语丝</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 15px;">历史</a> <a href="/tags/%E5%9C%B0%E9%9C%87/" style="font-size: 15px;">地震</a> <a href="/tags/%E5%9B%9E%E5%BF%86/" style="font-size: 15px;">回忆</a> <a href="/tags/%E7%AB%A5%E5%B9%B4/" style="font-size: 15px;">童年</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 15px;">科普</a> <a href="/tags/%E8%82%B2%E5%84%BF/" style="font-size: 15px;">育儿</a> <a href="/tags/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6/" style="font-size: 15px;">清华大学</a> <a href="/tags/%E6%A0%A1%E8%AE%AD/" style="font-size: 15px;">校训</a> <a href="/tags/%E8%87%AA%E7%94%B1/" style="font-size: 15px;">自由</a> <a href="/tags/%E8%B0%A3%E8%A8%80/" style="font-size: 15px;">谣言</a> <a href="/tags/DNS/" style="font-size: 15px;">DNS</a> <a href="/tags/ICANN/" style="font-size: 15px;">ICANN</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E6%B2%BB%E7%90%86/" style="font-size: 15px;">互联网治理</a> <a href="/tags/%E5%A5%A5%E8%BF%90%E4%BC%9A/" style="font-size: 15px;">奥运会</a> <a href="/tags/%E5%B9%B3%E7%AD%89/" style="font-size: 15px;">平等</a> <a href="/tags/%E4%B8%AD%E5%8C%BB/" style="font-size: 15px;">中医</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 15px;">文化</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 15px;">互联网</a> <a href="/tags/TCP-IP/" style="font-size: 15px;">TCP/IP</a> <a href="/tags/OSI/" style="font-size: 15px;">OSI</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 15px;">感悟</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 15px;">思考</a> <a href="/tags/%E5%86%9C%E6%9D%91/" style="font-size: 15px;">农村</a> <a href="/tags/%E6%95%85%E4%B9%A1/" style="font-size: 15px;">故乡</a> <a href="/tags/%E4%BC%A0%E7%BB%9F/" style="font-size: 15px;">传统</a> <a href="/tags/%E4%BF%84%E7%BD%97%E6%96%AF/" style="font-size: 15px;">俄罗斯</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4/" style="font-size: 15px;">网络空间</a> <a href="/tags/Internet-governance/" style="font-size: 15px;">Internet governance</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Letzte</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/closer-look-sovereign-runet/">仔细研究俄罗斯的主权互联网法案</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/13/russia-disconnection/">俄罗斯断网测试值得效仿吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/hometown-2/">回乡杂感(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/bias/">我的观点都是个人“偏见”，谁的观点是“全见”？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/baby-book/">《美国儿科学会育儿百科》中文版中的几个问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/osi/">OSI模型究竟忽悠了多少人？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/abacus/">从算盘的历史到IBM和微软的阴谋</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/index/">同一个世界，同一个怎样的梦想？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/iq-tld/">伊拉克域名.IQ被美国删除的背后以及早期的根域名管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/06/tsinghua-rumor/">关于清华“十六字校训”被腰斩的流言考证--怪我吗？</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">段章取义.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
